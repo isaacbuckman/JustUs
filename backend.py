@@ -80,7 +80,7 @@ def submit():
 	con.commit()
 	con.close()
 
-	return render_template('results.html', similar_words=similar_words, num_of_similar=len(similar_reports))
+	return render_template('results.html', similar_words=str(similar_words)[1:-1], num_of_similar=len(similar_reports))
 
 if __name__ == "__main__":
     app.run()
