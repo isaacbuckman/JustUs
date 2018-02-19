@@ -57,7 +57,10 @@
     <h2>
       Our database had {{ num_of_similar }} other people who filed similar reports.
     </h2>
-    <h2>The words that were used in similar reports include {{ similar_words }}.</h2>
+    {% if similar_words != [] %}
+        <h2>The words that were used in similar reports include {{ similar_words }}.</h2>
+    {% else %}
+    {% endif %}
     <h3>
       <span> Please call 800-799-SAFE (7233) for help. Don't be afraid to speak out! </span>
     </h3>
