@@ -33,9 +33,6 @@ def keywords_exist(text):
 	w.append(pd.keywords(text))
 	del (w[0])['usage']
 
-	# print (w)
-	# print(w[0]['keywords'])
-
 	if((w[0]['keywords']) == {'keywords': 'No Keywords.', 'confidence_score': '0'}):
 		return False
 	else:
@@ -54,7 +51,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def form():
-    return render_template('mainform.html', invalid=False)
+    return render_template('main_form.html', invalid=False)
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
@@ -64,7 +61,7 @@ def submit():
 	what_raw = request.form['what']
 
 	if what_raw == "" or not keywords_exist(what_raw):
-		return render_template('mainform.html',invalid=True)
+		return render_template('main_form.html',invalid=True)
 
 	con = sqlite3.connect('database.db')
 	cur = con.cursor()
