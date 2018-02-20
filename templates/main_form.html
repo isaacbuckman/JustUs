@@ -1,100 +1,47 @@
 <!DOCTYPE html>
-  <html>
+
+<html lang="en">
   <head>
     <title>JustUs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-      * {
-        font-family: 'Muli', sans-serif;
-      	transition: all 200ms;
-      }
-      form {
-        margin: 0 auto;
-        width: 400px;
-      }
-      form div+div {
-        margin-top: 4em;
-      }
-      label {
-        display: inline-block;
-        width: 80px;
-        text-align: center;
-      }
-      input, textarea{
-        width: 300px;
-        box-sizing: border-box;
-        border: 1px solid #999;
-      }
-      input:focus, textarea:focus{
-        margin-left: .5em;
-      }
-      textarea {
-        vertical-align: top;
-        height: 5em;
-      }
-      p {
-        color: red;
-        font-weight: 700;
-        padding-left: 85px;
-      }
-      h1 {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        font-size: 2rem;
-        padding-left: 50px;
-        padding-right: 50px;
-        text-align: center;
-      }
-      .button {
-        padding-left: 90px;
-      }
-      button {
-        margin-left: .5em;
-      }
-      .navbar-brand {
-        font-size: 3rem;
-        font-weight: 800;
-        padding-left: 10px;
-      }
-      .navbar-brand2 {
-        font-size: 3rem;
-        font-weight: 800;
-      }
-      .navbar, .navbar-brand2 {
-        background-color: rgba(0, 128, 128, 0.5);
-        color: white;
-      }
+    body{
+      background-image: url("/static/background.jpg");
+    }
     </style>
   </head>
 
   <body>
-    <nav class="navbar">
-      <a class="navbar-brand">Welcome to </a>
-      <b class="navbar-brand2">JustUs</b>
+    <nav class="navbar navbar-dark" style="background-color: black;">
+      <a class="navbar-brand" style="font-size: 2em" href="#">
+        <img src="/static/ribbon_black.png" width="30" height="50" class="d-inline-block align-top" alt="">
+      JustUs
+      </a>
     </nav>
-    <h1>
-      Please answer the following questions to the best of your ability.
-    </h1>
+    <div class="container">
+      <div class="text-center" style="margin:15px 0 0 0;">
+        <h2 class="font-weight-bold">Report Form</h2>
+      </div>
     <form action="/submit" method="post">
-      <div>
-        <label for="who">Who:</label>
-            <input type="text" id="who" name="who"/>
+      <div class="form-group">
+        <label for="who">Abuser</label>
+        <input type="text" class="form-control" id="who" placeholder="John Doe">
       </div>
-      <div>
-        <label for="location">Where:</label>
-            <input type="text" id="location" name="location"/>
+      <div class="form-group">
+        <label for="location">Where</label>
+          <input type="text" class="form-control" id="location" placeholder="New York, NY">
       </div>
-      <div>
-        <label for="what">Incident:</label>
-          <textarea id="what" name="what"></textarea>
-          {% if invalid %}
-            <p>Incident not detailed enough</p>
-          {% else %}
-          {% endif %}
+      <div class="form-group">
+        <label for="what">Incident</label>
+        <textarea class="form-control" id="what" rows="3"></textarea>
+        {% if invalid %}
+        <p>Incident not detailed enough</p>
+        {% else %}
+        {% endif %}
       </div>
-      <div class="button">
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-      </div>
+      <button type="submit" class="btn btn-primary" style="background-color: teal;">Submit</button>
+      <button type="reset" class="btn btn-primary" style="background-color: teal;">Reset</button>
     </form>
-  </body>
-  </html>
+    </div>
+    </body>
+</html>
