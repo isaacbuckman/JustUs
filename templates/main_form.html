@@ -25,15 +25,15 @@
     <form action="/submit" method="post">
       <div class="form-group">
         <label for="who">Abuser</label>
-        <input type="text" class="form-control" id="who" placeholder="John Doe">
+        <input type="text" class="form-control" id="who" name ="who" placeholder="John Doe">
       </div>
       <div class="form-group">
         <label for="location">Where</label>
-          <input type="text" class="form-control" id="location" placeholder="New York, NY">
+          <input type="text" class="form-control" id="location" name="location" placeholder="New York, NY">
       </div>
       <div class="form-group">
         <label for="what">Incident</label>
-        <textarea class="form-control" id="what" rows="3"></textarea>
+        <textarea class="form-control" id="what" name="what" rows="3"></textarea>
         {% if invalid %}
         <p>Incident not detailed enough</p>
         {% else %}
