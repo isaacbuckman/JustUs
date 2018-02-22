@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>JustUs</title>
+    <style>
+      * {
+        font-family: 'Muli', sans-serif;
+      	transition: all 200ms;
+      }
+      form {
+        margin: 0 auto;
+        width: 400px;
+      }
+      form div+div {
+        margin-top: 4em;
+      }
+      label {
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+      }
+      input, textarea{
+        width: 300px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+      }
+      input:focus, textarea:focus{
+        margin-left: .5em;
+      }
+      textarea {
+        vertical-align: top;
+        height: 5em;
+      }
+      p {
+        color: red;
+        font-weight: 700;
+        padding-left: 85px;
+      }
+      h1 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: center;
+      }
+      .button {
+        padding-left: 90px;
+      }
+      button {
+        margin-left: .5em;
+      }
+      .navbar-brand {
+        font-size: 3rem;
+        font-weight: 800;
+        padding-left: 10px;
+      }
+      .navbar-brand2 {
+        font-size: 3rem;
+        font-weight: 800;
+      }
+      .navbar, .navbar-brand2 {
+        background-color: rgba(0, 128, 128, 0.5);
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a class="navbar-brand">Welcome to </a>
+      <b class="navbar-brand2">JustUs</b>
+    </nav>
+    <h1>
+      Please answer the following questions to the best of your ability.
+    </h1>
+    <form action="/submit" method="post">
+      <div>
+        <label for="who">Who:</label>
+            <input type="text" id="who" name="who"/>
+      </div>
+      <div>
+        <label for="location">Where:</label>
+            <input type="text" id="location" name="location"/>
+      </div>
+      <div>
+        <label for="what">Incident:</label>
+          <textarea id="what" name="what"></textarea>
+          {% if invalid %}
+            <p>Incident not detailed enough</p>
+          {% else %}
+          {% endif %}
+      </div>
+      <div class="button">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>
